@@ -1,3 +1,5 @@
+package setup
+
 import org.scalatest.FunSuite
 
 class SetupTest extends FunSuite {

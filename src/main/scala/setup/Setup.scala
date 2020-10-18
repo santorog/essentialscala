@@ -1,3 +1,5 @@
+package setup
+
 object Setup extends App{
 
   println(cube(3))

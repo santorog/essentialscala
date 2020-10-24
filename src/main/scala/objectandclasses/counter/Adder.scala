@@ -1,5 +1,5 @@
 package objectandclasses.counter
 
 class Adder(amount: Int) {
-  def add(in: Int) = in + amount
+  def apply(in: Int) = in + amount
 }

@@ -10,7 +10,7 @@ class Counter(val start: Int = 0) {
 
   def dec(amount: Int = 1) = new Counter(start - amount)
 
-  def adjust(a: Adder) = new Counter(a.add(start))
+  def adjust(a: Adder) = new Counter(a(start))
 
   def count = start
 }

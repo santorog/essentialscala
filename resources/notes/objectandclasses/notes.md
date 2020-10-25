@@ -1,5 +1,5 @@
 1/ Scala classes are all subclasses of java.lang.Object and are, for
-the most part, usable from Java as well as Scala
+the most part, usable from Java as well as Scala.
 
 2/ class Name(**val** parameter: type, ...)
 
@@ -15,8 +15,7 @@ We can also use this(parameters) to override the constructors. It is important t
 that the companion object is not an instance of the class — it is a singleton object 
 with its own type.
 A companion object has the same name as its associated class. This doesn't cause
-a naming conflict because Scala has two namespaces: the namespace of values
-and the namespace of types.
+a naming conflict because Scala has two namespaces: the namespace of values, and the namespace of types.
 
 7/ Features of a case-class :
 - a field for each constructor argument (without specifying val or var)

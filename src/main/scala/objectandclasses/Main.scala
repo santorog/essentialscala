@@ -4,7 +4,7 @@ import objectandclasses.counter.{Adder, Counter}
 import objectandclasses.persons.{Alien, Person}
 
 object Main extends App {
-  val p = new Person("Lea", "de Maury")
+  val p = Person("Lea Dmry")
   println(Alien.greet(p))
 
   val a = new Adder(250)

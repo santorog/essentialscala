@@ -1,6 +1,6 @@
 package modellingdatawithtraits.shapingupwithtraits
 
-trait Rectangular extends Shape {
+sealed trait Rectangular extends Shape {
 
   val sides = 4
 
@@ -12,3 +12,10 @@ trait Rectangular extends Shape {
 
   def area = height * width
 }
+
+case class Square(side: Double) extends Rectangular {
+  val height = side
+  val width = side
+}
+
+case class Rectangle(height: Double, width: Double) extends Rectangular

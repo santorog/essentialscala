@@ -8,7 +8,7 @@ object Main extends App {
   // runCats()
   runShapes()
 
-  def runCats() = {
+  def runCats(): Unit = {
     val c = Cat("pink", "lasagna")
     val l = Lion("green", 1518)
 
@@ -16,8 +16,8 @@ object Main extends App {
     println(l.sound)
   }
 
-  def runShapes() = {
-    val r = Rectangle(3,6)
+  def runShapes(): Unit = {
+    val r = Rectangle(3, 6)
     val c = Circle(1)
 
     print(r.width > c.perimeter)

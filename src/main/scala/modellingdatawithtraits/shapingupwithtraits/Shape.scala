@@ -2,7 +2,7 @@ package modellingdatawithtraits.shapingupwithtraits
 
 trait Shape {
 
-  def sides: Double
+  def sides: Int
 
   def perimeter: Double
 

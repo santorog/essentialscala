@@ -79,3 +79,10 @@ We have three ways of implementing structural recursion:
    method depends on other data consider implementing it using pattern matching outside of the classes
    in question. If we want to have more than one implementation we should use
    pattern matching and implement it outside the classes.
+   
+10/ Recursive data structures are approached in this section.
+
+11/A tail call can be optimised to not use stack space. Due to limitations in the
+   JVM, Scala only optimises tail calls where the caller calls itself. Since tail recursion
+   is an important property to maintain, we can use the **@tailrec** annotation to ask the 
+   compiler to check that methods we believe are tail recursion really are.

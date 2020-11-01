@@ -1,12 +1,14 @@
 package modellingdatawithtraits
 
 import modellingdatawithtraits.catsandmorecats.{Cat, Lion}
+import modellingdatawithtraits.division.Divide
 import modellingdatawithtraits.shapingupwithtraits.{Circle, Custom, Draw, Pink, Rectangle, Red, Square}
 
 object Main extends App {
 
   // runCats()
-  runShapes()
+  // runShapes()
+  runDivide()
 
   def runCats(): Unit = {
     val c = Cat("pink", "lasagna")
@@ -24,6 +26,10 @@ object Main extends App {
     Draw(r)
     Draw(c)
     Draw(s)
+  }
+
+  def runDivide(): Unit = {
+    println(Divide(656520, 0).toString)
   }
 
 }

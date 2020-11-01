@@ -61,7 +61,8 @@ final case class D(b: B) extends A
 final case class E(c: C) extends A
 ```
 
-7/ Structural recursion is the precise opposite of the process of building an algebraic data type. If A has a B and C (the product-type pattern), to construct an
+7/ Structural recursion is the precise opposite of the process of building an algebraic data type. 
+If A has a B and C (the product-type pattern), to construct an
    A we must have a B and a C . The sum and product type patterns tell us how to
    combine data to make bigger data. Structural recursion says that if we have an
    A as defined before, we must break it into its constituent B and C that we then

@@ -2,7 +2,7 @@ package modellingdatawithtraits
 
 import modellingdatawithtraits.calculation.{Calculator, Failure, Success}
 import modellingdatawithtraits.catsandmorecats.{Cat, Lion}
-import modellingdatawithtraits.recursivedata.{End, Pair}
+import modellingdatawithtraits.recursivedata.{End, Leaf, Node, Pair}
 import modellingdatawithtraits.shapingupwithtraits.{Circle, Custom, Draw, Pink, Rectangle, Red, Square}
 
 
@@ -11,7 +11,8 @@ object Main extends App {
   // runCats()
   // runShapes()
   // testCalculator()
-  testLists()
+  // testLists()
+  testTrees()
 
   def runCats(): Unit = {
     val c = Cat("pink", "lasagna")
@@ -39,7 +40,7 @@ object Main extends App {
     assert(Calculator./(Success(4), 0) == Failure("Division by zero"))
     assert(Calculator./(Failure("Badness"), 0) == Failure("Badness"))
 
-    println("All tests ran successfully.")
+    println("All calculator tests ran successfully.")
   }
 
   def testLists(): Unit = {
@@ -55,7 +56,18 @@ object Main extends App {
     assert(l.t.double() == Pair(4, Pair(6, End)))
     assert(End.double() == End)
 
-    println("All tests ran successfully.")
+    println("All IntList tests ran successfully.")
+  }
+
+  def testTrees(): Unit = {
+    val t = Node(Node(Leaf(2), Leaf(1)), Leaf(3))
+    assert(t.sum() == 6)
+    assert(t.r.sum() == 3)
+    assert(Leaf(0).sum() == 0)
+    assert(Leaf(2).double() != Leaf(7))
+    assert(t.double() == Node(Node(Leaf(4), Leaf(2)), Leaf(6)))
+
+    println("All Tree tests ran successfully.")
   }
 
 }

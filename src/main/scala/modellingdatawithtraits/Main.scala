@@ -1,7 +1,7 @@
 package modellingdatawithtraits
 
 import modellingdatawithtraits.catsandmorecats.{Cat, Lion}
-import modellingdatawithtraits.shapingupwithtraits.{Circle, Rectangle}
+import modellingdatawithtraits.shapingupwithtraits.{Circle, Custom, Draw, Pink, Rectangle, Red, Square}
 
 object Main extends App {
 
@@ -17,10 +17,13 @@ object Main extends App {
   }
 
   def runShapes(): Unit = {
-    val r = Rectangle(3, 6)
-    val c = Circle(1)
+    val r = Rectangle(3, 6, Red())
+    val c = Circle(1, Pink())
+    val s = Square(17, Custom(12, 1, 3))
 
-    print(r.width > c.perimeter)
+    Draw(r)
+    Draw(c)
+    Draw(s)
   }
 
 }

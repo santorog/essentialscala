@@ -1,3 +1,5 @@
+Objects and classes
+
 1/ Scala classes are all subclasses of java.lang.Object and are, for
 the most part, usable from Java as well as Scala.
 

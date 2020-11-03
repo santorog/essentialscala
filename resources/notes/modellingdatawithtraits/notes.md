@@ -1,7 +1,7 @@
 
 Modelling data with traits
 
-0/ Traits are a way of abstracting over classes that have similar proper es, just like
+0/ Traits are a way of abstracting over classes that have similar properties, just like
    classes are a way of abstracting over objects.
 
 1/

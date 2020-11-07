@@ -37,4 +37,4 @@ a naming conflict because Scala has two namespaces: the namespace of values, and
     - a name, binding any value to that name;
     - an underscore, matching any value and ignoring it;
     - a literal, matching the value the literal denotes; or
-    - a constructor-style pa ern for a case class.
+    - a constructor-style pattern for a case class.

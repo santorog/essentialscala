@@ -1,33 +1,20 @@
 package modellingdatawithtraits.recursivedata
 
-import scala.annotation.tailrec
-
 sealed trait IntList {
 
-  def length(): Int = {
-    @tailrec
-    def aux(l: IntList, acc: Int): Int = l match {
-      case End => acc
-      case Pair(_, q) => aux(q, 1 + acc)
+  def length(): Int = fold[Int](0, (_, y) => 1 + y)
+
+  def sum(): Int = fold[Int](0, (x, y) => x + y)
+
+  def product(): Int = fold[Int](1, (x, y) => x * y)
+
+  def double(): IntList = fold[IntList](End, (x, y: IntList) => Pair(2 * x, y))
+
+  def fold[A](end: A, f: (Int, A) => A): A =
+    this match {
+      case End => end
+      case Pair(h, t) => f(h, t.fold(end, f))
     }
-
-    aux(this, 0)
-  }
-
-  def product(): Int = {
-    @tailrec
-    def aux(l: IntList, acc: Int): Int = l match {
-      case End => acc
-      case Pair(t, q) => aux(q, t * acc)
-    }
-
-    aux(this, 1)
-  }
-
-  def double(): IntList = this match {
-    case End => End
-    case Pair(t, q) => Pair(2 * t, q.double())
-  }
 
 }
 

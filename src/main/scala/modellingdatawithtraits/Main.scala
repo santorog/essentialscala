@@ -11,8 +11,8 @@ object Main extends App {
   // runCats()
   // runShapes()
   // testCalculator()
-  // testLists()
-  testTrees()
+   testLists()
+  // testTrees()
 
   def runCats(): Unit = {
     val c = Cat("pink", "lasagna")

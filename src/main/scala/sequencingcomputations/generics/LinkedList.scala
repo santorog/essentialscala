@@ -25,6 +25,12 @@ sealed trait LinkedList[T] {
       case Pair(h, t) => if (i == 0) Success(h) else t.apply(i - 1)
     }
   }
+
+  def fold[A](end: A, f: (T, A) => A): A = this match {
+    case End() => end
+    case Pair(h, t) => f(h, t.fold(end, f))
+  }
+
 }
 
 final case class Pair[T](h: T, t: LinkedList[T]) extends LinkedList[T]

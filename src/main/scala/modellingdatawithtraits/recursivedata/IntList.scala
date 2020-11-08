@@ -4,9 +4,9 @@ sealed trait IntList {
 
   def length(): Int = fold[Int](0, (_, y) => 1 + y)
 
-  def sum(): Int = fold[Int](0, (x, y) => x + y)
+  def sum(): Int = fold[Int](0, _ + _)
 
-  def product(): Int = fold[Int](1, (x, y) => x * y)
+  def product(): Int = fold[Int](1, _ * _)
 
   def double(): IntList = fold[IntList](End, (x, y: IntList) => Pair(2 * x, y))
 

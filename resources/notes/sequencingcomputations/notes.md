@@ -27,3 +27,10 @@ For an algebraic datatype A, fold converts it to a generic type B. Fold is a str
 • if A is recursive, any function parameters that refer to a recursive
 field take a parameter of type B.
 The right-hand side of pattern matching cases, or the polymorphic methods as appropriate, consists of calls to the appropriate function
+
+
+/ Placeholder syntax 
+
+```scala
+(_: Int) * 2 is expanded by the compiler to (a: Int) => a * 2
+````

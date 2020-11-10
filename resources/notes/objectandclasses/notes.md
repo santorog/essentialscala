@@ -3,7 +3,8 @@ Objects and classes
 1/ Scala classes are all subclasses of java.lang.Object and are, for
 the most part, usable from Java as well as Scala.
 
-2/```scala
+2/
+```scala
 class Name(**val** parameter: type, ...)
 ```
 

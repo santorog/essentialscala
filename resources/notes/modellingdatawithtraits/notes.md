@@ -14,11 +14,11 @@ Modelling data with traits
 
 3/ Product type programming pattern - “A has a B and C”
  
- ```
+ ```scala
  case class A(b: B, c: C)
 ```
 or
-```
+```scala
 trait A {
  def b: B  
  def c: C
@@ -27,7 +27,7 @@ trait A {
 
 4/ Sum type programming pattern - “A is a B or C”
  
- ```
+ ```scala
  sealed trait A
  final case class B() extends A
  final case class C() extends A
@@ -39,22 +39,23 @@ trait A {
    
 6/ Missing patterns : "is-a and" and "has-a or"
 
-```
+```scala
 trait B
 trait C
 trait A extends B with C
 ```
 
 
-```
+```scala
 trait A {
 def d: D
 }
+
 sealed trait D
 final case class B() extends D
 final case class C() extends D
 
-or
+// or
 
 sealed trait A
 final case class D(b: B) extends A

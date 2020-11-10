@@ -1,14 +1,17 @@
 package sequencingcomputations
 
-import sequencingcomputations.generics.{End, Failure, Leaf, Node, Pair, Success}
+import sequencingcomputations.datawithgenerictypes.Left
+import sequencingcomputations.functions.{Leaf, Node}
+import sequencingcomputations.generics.{Element, End, Failure, Success}
 
 object Main extends App {
 
   //testGenLists()
-  testGenTrees()
+  //testGenTrees()
+  testDataWithGenericTypes()
 
   def testGenLists(): Unit = {
-    val l = Pair(1, Pair(2, Pair(3, End())))
+    val l = Element(1, Element(2, Element(3, End())))
     assert(l.length == 3)
     assert(l.t.length == 2)
     assert(End().length == 0)
@@ -27,4 +30,7 @@ object Main extends App {
     println(t.mirror.toString)
   }
 
+  def testDataWithGenericTypes(): Unit = {
+    println(Left(5).value)
+  }
 }

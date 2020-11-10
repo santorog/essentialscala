@@ -1,4 +1,4 @@
-package sequencingcomputations.generics
+package sequencingcomputations.functions
 
 sealed trait Tree[A] {
 

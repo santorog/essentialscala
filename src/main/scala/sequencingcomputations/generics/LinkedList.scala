@@ -2,10 +2,10 @@ package sequencingcomputations.generics
 
 import scala.annotation.tailrec
 
-sealed trait LinkedList[T] {
+sealed trait LinkedList[A] {
   def length: Int = {
     @tailrec
-    def aux(acc: Int, l: LinkedList[T]): Int = l match {
+    def aux(acc: Int, l: LinkedList[A]): Int = l match {
       case End() => acc
       case Element(_, t) => aux(acc + 1, t)
     }
@@ -13,12 +13,12 @@ sealed trait LinkedList[T] {
     aux(0, this)
   }
 
-  def contains(e: T): Boolean = this match {
+  def contains(e: A): Boolean = this match {
     case End() => false
     case Element(h, t) => h == e || t.contains(e)
   }
 
-  def apply(i: Int): Result[T] = {
+  def apply(i: Int): Result[A] = {
     if (i < 0) Failure("Index out of bounds.")
     this match {
       case End() => Failure("Index out of bounds.")
@@ -26,7 +26,7 @@ sealed trait LinkedList[T] {
     }
   }
 
-  def fold[A](end: A, f: (T, A) => A): A = this match {
+  def fold[B](end: B, f: (A, B) => B): B = this match {
     case End() => end
     case Element(h, t) => f(h, t.fold(end, f))
   }

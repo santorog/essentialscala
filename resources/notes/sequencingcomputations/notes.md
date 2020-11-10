@@ -29,7 +29,7 @@ For an algebraic datatype A, fold converts it to a generic type B. Fold is a str
 The right-hand side of pattern matching cases, or the polymorphic methods as appropriate, consists of calls to the appropriate function
 
 
-/ Placeholder syntax 
+6/ Placeholder syntax 
 
 ```scala
 (_: Int) * 2 is expanded by the compiler to (a: Int) => a * 2
@@ -40,9 +40,9 @@ _(foo)    // expands to `(a) => a(foo)`
 // and so on...
 ````
 
-/ Converting methods to functions => simply follow a method with an underscore
+7/ Converting methods to functions => simply follow a method with an underscore
 
-/ Multiple parameters lists
+8/ Multiple parameters lists
 
 ```scala
 def example(x: Int)(y: Int) = x + y
@@ -54,5 +54,5 @@ example(1)(2)
 
  It can be a but easier to read but more importantly, the use of multiple parameter lists to ease type inference. Scala’s type inference algorithm cannot use a type inferred for one parameter for another parameter in the same list. However, Scala can use types inferred for one parameter list in another parameter list.This means fewer type declarations and a smoother development process.
 
-/ 
+9/ 
 

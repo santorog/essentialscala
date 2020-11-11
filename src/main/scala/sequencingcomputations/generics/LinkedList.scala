@@ -27,6 +27,7 @@ sealed trait LinkedList[A] {
 
   def map[B](f: A => B): LinkedList[B] = fold[LinkedList[B]](End[B](), (x, y) => Element(f(x), y))
 
+  // To be improved, without concat
   def flatMap[B](f: A => LinkedList[B]): LinkedList[B] = fold[LinkedList[B]](End[B](), (x, y) => f(x).concat(y))
 
 }

@@ -1,21 +1,20 @@
 package sequencingcomputations.generics
 
-import scala.annotation.tailrec
-
 sealed trait LinkedList[A] {
-  def length: Int = {
-    @tailrec
-    def aux(acc: Int, l: LinkedList[A]): Int = l match {
-      case End() => acc
-      case Element(_, t) => aux(acc + 1, t)
-    }
 
-    aux(0, this)
+  def fold[B](end: B, f: (A, B) => B): B = this match {
+    case End() => end
+    case Element(h, t) => f(h, t.fold(end, f))
   }
 
-  def contains(e: A): Boolean = this match {
-    case End() => false
-    case Element(h, t) => h == e || t.contains(e)
+  def length: Int = fold[Int](0, (_, y) => 1 + y)
+
+  def contains(e: A): Boolean = fold[Boolean](false, (x, y) => x == e | y)
+
+  def concat(l: LinkedList[A]): LinkedList[A] = (this, l) match {
+    case (l1, End()) => l1
+    case (End(), l2) => l2
+    case (Element(x1, y1), l2) => Element(x1, y1.concat(l2))
   }
 
   def apply(i: Int): Result[A] = {
@@ -26,10 +25,9 @@ sealed trait LinkedList[A] {
     }
   }
 
-  def fold[B](end: B, f: (A, B) => B): B = this match {
-    case End() => end
-    case Element(h, t) => f(h, t.fold(end, f))
-  }
+  def map[B](f: A => B): LinkedList[B] = fold[LinkedList[B]](End[B](), (x, y) => Element(f(x), y))
+
+  def flatMap[B](f: A => LinkedList[B]): LinkedList[B] = fold[LinkedList[B]](End[B](), (x, y) => f(x).concat(y))
 
 }
 

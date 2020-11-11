@@ -1,13 +1,13 @@
 package sequencingcomputations
 
-import sequencingcomputations.datawithgenerictypes.Left
+import sequencingcomputations.datawithgenerictypes.{Full, Maybe, None}
 import sequencingcomputations.functions.{Leaf, Node}
 import sequencingcomputations.generics.{Element, End, Failure, Success}
 
 object Main extends App {
 
-  //testGenLists()
-  //testGenTrees()
+  testGenLists()
+  testGenTrees()
   testDataWithGenericTypes()
 
   def testGenLists(): Unit = {
@@ -31,6 +31,14 @@ object Main extends App {
   }
 
   def testDataWithGenericTypes(): Unit = {
-    println(Left(5).value)
+    val l = List(1, 2, 3)
+    println(l.flatMap(x => List(x, -x)))
+
+
+    val list: List[Maybe[Int]] = List(Full(3), Full(2), Full(1))
+    print(list.map {
+      case Full(v) => if (v % 2 == 0) Full(v) else None()
+      case None() => None()
+    })
   }
 }

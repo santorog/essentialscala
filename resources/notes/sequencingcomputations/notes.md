@@ -32,13 +32,13 @@ The right-hand side of pattern matching cases, or the polymorphic methods as app
 6/ Placeholder syntax 
 
 ```scala
-(_: Int) * 2 is expanded by the compiler to (a: Int) => a * 2
-_ + _     // expands to `(a, b) => a + b`
-foo(_)    // expands to `(a) => foo(a)`
-foo(_, b) // expands to `(a) => foo(a, b)`
-_(foo)    // expands to `(a) => a(foo)`
+(_: Int) * 2  // expands to (a: Int) => a * 2
+_ + _         // expands to `(a, b) => a + b`
+foo(_)        // expands to `(a) => foo(a)`
+foo(_, b)     // expands to `(a) => foo(a, b)`
+_(foo)        // expands to `(a) => a(foo)`
 // and so on...
-````
+````    
 
 7/ Converting methods to functions => simply follow a method with an underscore
 
@@ -54,5 +54,32 @@ example(1)(2)
 
  It can be a but easier to read but more importantly, the use of multiple parameter lists to ease type inference. Scala’s type inference algorithm cannot use a type inferred for one parameter for another parameter in the same list. However, Scala can use types inferred for one parameter list in another parameter list.This means fewer type declarations and a smoother development process.
 
-9/ 
+9/ *Generic Product Type* -> A tuple is the generalisation of a pair to more terms. Scala includes built-in
+   generic tuple types with up to 22 elements. 
 
+10/ *Generic Sum Type* -> We introduce a new type that explicitly represents the disjunction. 
+```scala
+sealed trait Either[A, B]
+
+final case class Left[A, B](value: A) extends Either[A, B]
+final case class Right[A, B](value: B) extends Either[A, B]
+```
+
+11/ *Generic Optional Values* -> Option
+
+12/ 
+```scala 
+// Where L is an object containing some A
+final class L[A](){
+
+  def map[B](f: A => B) : L[B] = { ... } 
+
+  def flatMap[B](f: A => L[B]) : L[B] = { ... }
+}
+```
+
+13/ Functors and Monads - simple definition 
+
+A type like F[A] with a map method is called a functor. If a functor also has a flatMap method it is called a monad.
+
+14/ 

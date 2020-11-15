@@ -93,3 +93,20 @@ Most Scala collection classes are covariant in terms of their contents.
 A type Foo[-T] is contravariant in terms of T , meaning Foo[A] is a subtype of Foo[B] if A is a supertype of B.
 The only example of contravariance that I am aware of is func on arguments.
 
+15/ *Covariant Generic Sum Type Pattern*
+```scala
+sealed trait A[+T]
+final case class B[T](t: T) extends A[T]
+case object C extends A[Nothing]
+```
+
+16/ *Contravariant Position Pattern*
+
+If A of a covariant type T and a method f of A complains that T is used in
+ a contravariant position, introduce a type TT >: T in f .
+
+```scala
+case class A[+T]() {
+def f[TT >: T](t: TT): A[TT] = ???
+}
+```

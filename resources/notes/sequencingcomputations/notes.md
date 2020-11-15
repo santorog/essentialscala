@@ -82,4 +82,14 @@ final class L[A](){
 
 A type like F[A] with a map method is a functor. If a functor also has a flatMap method it is called a monad.
 
-14/ 
+14/ *Variance annotations* allow us to control sub-class relationships between types with type parameters.
+
+A type Foo[T] is invariant in terms of T , meaning the types Foo[A] and Foo[B] are unrelated regardless of the
+relationship between A and B . This is the default variance of any generic type in Scala.
+
+A type Foo[+T] is covariant in terms of T , meaning Foo[A] is a supertype of Foo[B] if A is a supertype of B.
+Most Scala collection classes are covariant in terms of their contents.
+
+A type Foo[-T] is contravariant in terms of T , meaning Foo[A] is a subtype of Foo[B] if A is a supertype of B.
+The only example of contravariance that I am aware of is func on arguments.
+

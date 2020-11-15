@@ -52,7 +52,7 @@ example(1)(2)
 // res3: Int = 3
 ```
 
- It can be a but easier to read but more importantly, the use of multiple parameter lists to ease type inference. Scala’s type inference algorithm cannot use a type inferred for one parameter for another parameter in the same list. However, Scala can use types inferred for one parameter list in another parameter list.This means fewer type declarations and a smoother development process.
+ It can be a bit easier to read but more importantly, the use of multiple parameter lists to ease type inference. Scala’s type inference algorithm cannot use a type inferred for one parameter for another parameter in the same list. However, Scala can use types inferred for one parameter list in another parameter list.This means fewer type declarations, and a smoother development process.
 
 9/ *Generic Product Type* -> A tuple is the generalisation of a pair to more terms. Scala includes built-in
    generic tuple types with up to 22 elements. 
@@ -80,6 +80,6 @@ final class L[A](){
 
 13/ Functors and Monads - simple definition 
 
-A type like F[A] with a map method is called a functor. If a functor also has a flatMap method it is called a monad.
+A type like F[A] with a map method is a functor. If a functor also has a flatMap method it is called a monad.
 
 14/ 

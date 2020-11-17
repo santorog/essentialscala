@@ -37,8 +37,8 @@ object Main extends App {
 
     val list: List[Maybe[Int]] = List(Full(3), Full(2), Full(1))
     print(list.map {
-      case Full(v) => if (v % 2 == 0) Full(v) else None()
-      case None() => None()
+      case Full(v) => if (v % 2 == 0) Full(v) else None
+      case None => None
     })
   }
 }
